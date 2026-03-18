@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/markethub_test}
+
+app:
+  bootstrap:
+    enabled: false
