@@ -1,5 +1,8 @@
 const apiClient = (() => {
-    const baseUrl = localStorage.getItem("apiBaseUrl") || "http://localhost:8080";
+    const configuredBaseUrl = localStorage.getItem("apiBaseUrl");
+    const baseUrl = configuredBaseUrl && configuredBaseUrl.trim().length > 0
+        ? configuredBaseUrl.trim()
+        : window.location.origin;
 
     function request(method, path, data) {
         const token = localStorage.getItem("accessToken");
