@@ -1,19 +1,21 @@
 # MarketHub
 
-Bu repo, `backend` ve `frontend` klasorlerinden olusan ayrik bir yapi ile baslatildi.
+Bu repo, Eclipse'te tek Maven proje olarak acilabilecek sekilde duzenlendi.
 
 ## Yapi
 
-- `backend`: Spring Boot + MongoDB + JWT tabanli REST API
-- `frontend`: Bootstrap/jQuery tabanli statik istemci iskeleti
+- `src/main/java`: Spring Boot + MongoDB + JWT tabanli REST API
+- `src/main/resources`: uygulama konfigurasyonlari
+- `src/main/webapp`: Bootstrap/jQuery tabanli istemci dosyalari
+- `src/test/java`: testler
 
 ## Konfigurasyon
 
 Backend ayarlari dosyadan okunur:
 
-- `backend/src/main/resources/application.yml`
-- `backend/src/main/resources/application-dev.yml`
-- `backend/src/main/resources/application-test.yml`
+- `src/main/resources/application.yml`
+- `src/main/resources/application-dev.yml`
+- `src/main/resources/application-test.yml`
 
 Ortam bazli degerler environment variable ile override edilebilir:
 

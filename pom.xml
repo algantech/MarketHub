@@ -12,10 +12,11 @@
     </parent>
 
     <groupId>com.markethub</groupId>
-    <artifactId>backend</artifactId>
+    <artifactId>MarketHub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>markethub-backend</name>
-    <description>MarketHub backend skeleton</description>
+    <packaging>war</packaging>
+    <name>MarketHub</name>
+    <description>MarketHub application</description>
 
     <properties>
         <java.version>17</java.version>

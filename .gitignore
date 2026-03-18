@@ -1,6 +1,11 @@
 .DS_Store
 .idea/
 *.iml
+.classpath
+.factorypath
+.project
+.settings/
 
+target/
 backend/target/
 frontend/.DS_Store
