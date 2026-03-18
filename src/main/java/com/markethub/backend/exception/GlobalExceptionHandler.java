@@ -44,6 +44,14 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.CONFLICT, "Duplicate Resource", exception.getMessage(), request);
     }
 
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiErrorResponse> handleBusiness(
+        BusinessException exception,
+        HttpServletRequest request
+    ) {
+        return build(HttpStatus.BAD_REQUEST, "Business Error", exception.getMessage(), request);
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleNotFound(
         ResourceNotFoundException exception,

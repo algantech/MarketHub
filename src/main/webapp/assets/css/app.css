@@ -8,3 +8,24 @@ pre {
     border-radius: 0.5rem;
     padding: 1rem;
 }
+
+.company-list .list-group-item {
+    text-align: left;
+}
+
+.company-list .company-row.active {
+    border-color: #0d6efd;
+    background: #eef4ff;
+}
+
+.company-select-button {
+    color: inherit;
+}
+
+.company-select-button:hover {
+    color: inherit;
+}
+
+.company-list .btn-group {
+    flex-shrink: 0;
+}

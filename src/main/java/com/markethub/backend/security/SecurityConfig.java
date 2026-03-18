@@ -50,7 +50,7 @@ public class SecurityConfig {
                 .authenticationEntryPoint(authenticationEntryPoint)
                 .accessDeniedHandler(accessDeniedHandler))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/index.html", "/login.html", "/dashboard.html", "/assets/**").permitAll()
+                .requestMatchers("/", "/index.html", "/login.html", "/dashboard.html", "/system-admin.html", "/assets/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                 .requestMatchers("/api/system/**").hasAuthority("SYSTEM_ADMIN")
                 .anyRequest().authenticated())

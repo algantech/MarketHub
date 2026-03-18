@@ -36,8 +36,8 @@ Hazirlanan ilk iskelet su senaryoyu kapsar:
 
 - Sistem acilisinda bir `SYSTEM_ADMIN` kullanicisinin seed edilmesi
 - `SYSTEM_ADMIN` girisi
-- `SYSTEM_ADMIN` tarafindan firma olusturma
-- `SYSTEM_ADMIN` tarafindan firma kullanicisi olusturma
+- `SYSTEM_ADMIN` tarafindan firma CRUD islemleri
+- `SYSTEM_ADMIN` tarafindan firma kullanicisi CRUD islemleri
 - Firma kullanicilarinin sistem admin tarafindan listelenmesi
 - Giris yapan kullanicinin kendi profilini okuma
 

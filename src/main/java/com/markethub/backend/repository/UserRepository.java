@@ -14,7 +14,15 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     boolean existsByEmailIgnoreCase(String email);
 
+    boolean existsByUsernameIgnoreCaseAndIdNot(String username, String id);
+
+    boolean existsByEmailIgnoreCaseAndIdNot(String email, String id);
+
     Optional<User> findFirstByUserType(UserType userType);
+
+    long countByCompanyIdAndUserType(String companyId, UserType userType);
+
+    Optional<User> findByIdAndUserType(String id, UserType userType);
 
     List<User> findAllByUserType(UserType userType);
 
