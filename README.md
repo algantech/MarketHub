@@ -38,6 +38,7 @@ Hazirlanan ilk iskelet su senaryoyu kapsar:
 - `SYSTEM_ADMIN` girisi
 - `SYSTEM_ADMIN` tarafindan firma olusturma
 - `SYSTEM_ADMIN` tarafindan firma kullanicisi olusturma
+- Firma kullanicilarinin sistem admin tarafindan listelenmesi
 - Giris yapan kullanicinin kendi profilini okuma
 
 ## Not

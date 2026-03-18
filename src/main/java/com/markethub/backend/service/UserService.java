@@ -10,6 +10,7 @@ import com.markethub.backend.repository.CompanyRepository;
 import com.markethub.backend.repository.UserRepository;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -59,5 +60,22 @@ public class UserService {
         user.setUpdatedAt(now);
 
         return UserResponse.from(userRepository.save(user));
+    }
+
+    public List<UserResponse> listCompanyUsers(String companyId) {
+        List<User> users;
+
+        if (StringUtils.hasText(companyId)) {
+            if (!companyRepository.existsById(companyId)) {
+                throw new ResourceNotFoundException("Firma bulunamadi");
+            }
+            users = userRepository.findAllByUserTypeAndCompanyId(UserType.COMPANY_USER, companyId);
+        } else {
+            users = userRepository.findAllByUserType(UserType.COMPANY_USER);
+        }
+
+        return users.stream()
+            .map(UserResponse::from)
+            .toList();
     }
 }

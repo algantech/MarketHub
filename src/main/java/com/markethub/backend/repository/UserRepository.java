@@ -1,6 +1,8 @@
 package com.markethub.backend.repository;
 
 import com.markethub.backend.domain.User;
+import com.markethub.backend.domain.UserType;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -11,4 +13,10 @@ public interface UserRepository extends MongoRepository<User, String> {
     boolean existsByUsernameIgnoreCase(String username);
 
     boolean existsByEmailIgnoreCase(String email);
+
+    Optional<User> findFirstByUserType(UserType userType);
+
+    List<User> findAllByUserType(UserType userType);
+
+    List<User> findAllByUserTypeAndCompanyId(UserType userType, String companyId);
 }

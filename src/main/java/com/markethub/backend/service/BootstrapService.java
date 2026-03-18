@@ -34,14 +34,15 @@ public class BootstrapService implements CommandLineRunner {
             return;
         }
 
+        Instant now = Instant.now();
         String username = normalizeUsername(bootstrapProperties.getSystemAdmin().getUsername());
-        if (userRepository.existsByUsernameIgnoreCase(username)) {
+        User user = userRepository.findFirstByUserType(UserType.SYSTEM_ADMIN)
+            .orElseGet(User::new);
+
+        if (user.getId() == null && userRepository.existsByUsernameIgnoreCase(username)) {
             return;
         }
 
-        Instant now = Instant.now();
-
-        User user = new User();
         user.setUsername(username);
         user.setPasswordHash(passwordEncoder.encode(bootstrapProperties.getSystemAdmin().getPassword()));
         user.setFullName(bootstrapProperties.getSystemAdmin().getFullName());
@@ -50,7 +51,9 @@ public class BootstrapService implements CommandLineRunner {
         user.setUserType(UserType.SYSTEM_ADMIN);
         user.setCompanyId(null);
         user.setRoles(Set.of());
-        user.setCreatedAt(now);
+        if (user.getCreatedAt() == null) {
+            user.setCreatedAt(now);
+        }
         user.setUpdatedAt(now);
 
         userRepository.save(user);
