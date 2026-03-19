@@ -28,14 +28,14 @@ $(function () {
 
     if (authenticatedPage || $("#profileBox").length) {
         if (!token) {
-            window.location.href = "login";
+            window.location.href = "/login";
             return;
         }
 
         apiClient.request("GET", "/api/auth/me").done(function (response) {
             const user = response.data;
             if (user.userType === "SYSTEM_ADMIN") {
-                window.location.href = "system-admin";
+                window.location.href = "/system-admin";
                 return;
             }
             if ($("#welcomeText").length) {
@@ -77,17 +77,17 @@ $(function () {
 
 function redirectToLandingPage(user) {
     if (user?.userType === "SYSTEM_ADMIN") {
-        window.location.href = "system-admin";
+        window.location.href = "/system-admin";
         return;
     }
-    window.location.href = "dashboard";
+    window.location.href = "/dashboard";
 }
 
 function clearSessionAndRedirect() {
     const refreshToken = localStorage.getItem("refreshToken");
     const finalize = function () {
         apiClient.clearSession();
-        window.location.href = "login";
+        window.location.href = "/login";
     };
 
     if (!refreshToken) {

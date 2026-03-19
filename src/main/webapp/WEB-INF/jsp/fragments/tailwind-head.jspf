@@ -25,4 +25,4 @@
         }
     };
 </script>
-<link href="assets/css/app.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/assets/css/app.css" rel="stylesheet">

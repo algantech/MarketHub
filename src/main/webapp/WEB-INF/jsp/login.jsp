@@ -17,7 +17,7 @@
 <div class="login-shell relative min-h-screen overflow-hidden">
     <header class="relative z-10 border-b border-slate-200 bg-white/90 backdrop-blur">
         <div class="mx-auto flex max-w-[1600px] items-center px-6 py-5 md:px-8">
-            <a class="flex items-center gap-3 text-primary" href="login" aria-label="MarketHub Login">
+            <a class="flex items-center gap-3 text-primary" href="${pageContext.request.contextPath}/login" aria-label="MarketHub Login">
                 <span class="material-symbols-outlined text-[38px] leading-none">hub</span>
                 <span class="text-[22px] font-extrabold tracking-tight text-slate-950">MarketHub</span>
             </a>

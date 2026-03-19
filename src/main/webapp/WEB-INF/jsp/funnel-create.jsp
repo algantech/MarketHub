@@ -168,7 +168,7 @@
             </section>
 
             <section class="flex items-center justify-end gap-4 border-t border-slate-200 pt-8 pb-12">
-                <a href="dashboard" class="px-6 py-3 text-sm font-bold text-slate-600 transition-colors hover:text-slate-950">Cancel</a>
+                <a href="${pageContext.request.contextPath}/dashboard" class="px-6 py-3 text-sm font-bold text-slate-600 transition-colors hover:text-slate-950">Cancel</a>
                 <button type="button" class="inline-flex h-14 items-center justify-center rounded-2xl bg-primary px-8 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-colors hover:bg-blue-600">
                     <span class="material-symbols-outlined mr-2 text-[18px]">save</span>
                     Save Funnel

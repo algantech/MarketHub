@@ -76,7 +76,7 @@ $(function () {
         apiClient.request("GET", "/api/auth/me").done(function (response) {
             state.currentUser = response.data;
             if (state.currentUser.userType !== "SYSTEM_ADMIN") {
-                window.location.href = "dashboard";
+                window.location.href = "/dashboard";
                 return;
             }
 

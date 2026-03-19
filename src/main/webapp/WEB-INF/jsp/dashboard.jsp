@@ -93,6 +93,6 @@
 </div>
 
 <%@ include file="/WEB-INF/jsp/fragments/common-scripts.jspf" %>
-<script src="assets/js/dashboard.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/dashboard.js"></script>
 </body>
 </html>
