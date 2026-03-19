@@ -29,6 +29,12 @@ public class PageController {
         return "funnel";
     }
 
+    @GetMapping("/funnel/new")
+    public String newFunnel(Model model) {
+        model.addAttribute("activePage", "funnels");
+        return "funnel-create";
+    }
+
     @GetMapping("/system-admin")
     public String systemAdmin() {
         return "system-admin";

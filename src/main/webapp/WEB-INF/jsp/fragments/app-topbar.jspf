@@ -9,7 +9,7 @@
             </a>
             <nav class="hidden items-center gap-8 text-[15px] font-medium text-slate-700 lg:flex">
                 <a class="${activePage eq 'dashboard' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="dashboard">Dashboard</a>
-                <a class="pb-3 transition-colors hover:text-primary" href="#">Funnels</a>
+                <a class="${activePage eq 'funnels' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="funnel/new">Funnels</a>
                 <a class="pb-3 transition-colors hover:text-primary" href="#">Campaign</a>
                 <a class="pb-3 transition-colors hover:text-primary" href="#">Audience</a>
                 <a class="pb-3 transition-colors hover:text-primary" href="#">Comparison</a>
