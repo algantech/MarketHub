@@ -92,8 +92,7 @@ public class PageController {
     public String comparisonCompanies(Model model) {
         model.addAttribute("activePage", "comparison");
         model.addAttribute("comparisonSection", "companies");
-        model.addAttribute("comparisonLabel", "Companies");
-        return "comparison-placeholder";
+        return "comparison-companies";
     }
 
     @GetMapping("/comparison/ad-sets")

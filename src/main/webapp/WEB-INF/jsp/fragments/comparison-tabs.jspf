@@ -6,7 +6,7 @@
     <a href="${pageContext.request.contextPath}/comparison/funnels"
        class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'funnels' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Funnels</a>
     <a href="${pageContext.request.contextPath}/comparison/companies"
-       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'companies' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Companies</a>
+       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'companies' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Campaigns</a>
     <a href="${pageContext.request.contextPath}/comparison/ad-sets"
        class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'adSets' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Ad Sets</a>
     <a href="${pageContext.request.contextPath}/comparison/ads"
