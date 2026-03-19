@@ -35,6 +35,12 @@ public class PageController {
         return "funnel-create";
     }
 
+    @GetMapping("/campaign")
+    public String campaign(Model model) {
+        model.addAttribute("activePage", "campaign");
+        return "campaign";
+    }
+
     @GetMapping("/system-admin")
     public String systemAdmin() {
         return "system-admin";
