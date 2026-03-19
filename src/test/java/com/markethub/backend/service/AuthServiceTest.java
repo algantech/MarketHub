@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 
 import com.markethub.backend.audit.AuditService;
 import com.markethub.backend.config.JwtProperties;
-import com.markethub.backend.domain.RefreshToken;
 import com.markethub.backend.domain.User;
 import com.markethub.backend.domain.UserType;
 import com.markethub.backend.dto.request.LoginRequest;
@@ -64,7 +63,6 @@ class AuthServiceTest {
         );
 
         when(refreshTokenRepository.findAllByExpiresAtBeforeAndRevokedFalse(any())).thenReturn(List.of());
-        when(refreshTokenRepository.save(any(RefreshToken.class))).thenAnswer(invocation -> invocation.getArgument(0));
     }
 
     @Test
@@ -73,6 +71,7 @@ class AuthServiceTest {
         when(userRepository.findByUsernameIgnoreCase("tahir")).thenReturn(Optional.of(user));
         when(passwordEncoder.matches("HGS71mw9", "encoded")).thenReturn(true);
         when(jwtService.generateAccessToken(any(), anyString())).thenReturn("jwt-token");
+        when(refreshTokenRepository.save(any())).thenAnswer(invocation -> invocation.getArgument(0));
 
         var response = authService.login(new LoginRequest("tahir", "HGS71mw9"));
 
