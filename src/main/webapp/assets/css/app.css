@@ -42,6 +42,14 @@ pre {
         "opsz" 24;
 }
 
+.funnel-step-clip {
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%, 5% 50%);
+}
+
+.funnel-step-first {
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+}
+
 #profileMenuButton:focus-visible,
 #logoutButton:focus-visible {
     outline: 2px solid #1876f2;

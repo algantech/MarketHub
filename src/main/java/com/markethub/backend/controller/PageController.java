@@ -23,6 +23,12 @@ public class PageController {
         return "dashboard";
     }
 
+    @GetMapping("/funnel")
+    public String funnel(Model model) {
+        model.addAttribute("activePage", "dashboard");
+        return "funnel";
+    }
+
     @GetMapping("/system-admin")
     public String systemAdmin() {
         return "system-admin";

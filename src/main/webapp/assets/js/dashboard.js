@@ -257,7 +257,9 @@ $(function () {
         country.funnels.forEach(function (funnel) {
             elements.funnelTableBody.append(
                 "<tr class='transition-colors hover:bg-slate-50'>" +
-                    "<td class='px-8 py-6 text-[18px] font-medium text-slate-950'>" + escapeHtml(funnel.name) + "</td>" +
+                    "<td class='px-8 py-6 text-[18px] font-medium text-slate-950'>" +
+                        "<a class='transition-colors hover:text-primary hover:underline' href='funnel'>" + escapeHtml(funnel.name) + "</a>" +
+                    "</td>" +
                     "<td class='px-8 py-6 text-[16px] text-slate-600'>" + funnel.campaigns + " Active</td>" +
                     "<td class='px-8 py-6 text-[16px] text-slate-600'>" + formatCurrency(funnel.spend) + "</td>" +
                     "<td class='px-8 py-6 text-[16px] text-slate-600'>" + funnel.sales + "</td>" +
