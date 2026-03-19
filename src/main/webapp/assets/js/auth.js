@@ -12,8 +12,8 @@ $(function () {
             apiClient.request("POST", "/api/auth/login", {
                 username: $("#username").val(),
                 password: $("#password").val()
-            }).done(function (response) {
-                localStorage.setItem("accessToken", response.data.accessToken);
+            }, { skipAuthRefresh: true, skipAuthorization: true }).done(function (response) {
+                apiClient.storeSession(response.data);
                 redirectToLandingPage(response.data.user);
             }).fail(function (xhr) {
                 const response = xhr.responseJSON;
@@ -58,6 +58,19 @@ function redirectToLandingPage(user) {
 }
 
 function clearSessionAndRedirect() {
-    localStorage.removeItem("accessToken");
-    window.location.href = "login.html";
+    const refreshToken = localStorage.getItem("refreshToken");
+    const finalize = function () {
+        apiClient.clearSession();
+        window.location.href = "login.html";
+    };
+
+    if (!refreshToken) {
+        finalize();
+        return;
+    }
+
+    apiClient.request("POST", "/api/auth/logout", { refreshToken }, {
+        skipAuthRefresh: true,
+        skipAuthorization: true
+    }).always(finalize);
 }

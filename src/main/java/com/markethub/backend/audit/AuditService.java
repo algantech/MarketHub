@@ -84,6 +84,37 @@ public class AuditService {
             Map.of("companyId", user.getCompanyId(), "userType", user.getUserType().name()));
     }
 
+    public void recordTokenRefresh(User user, String sessionId) {
+        save(buildLog(
+            AuditAction.TOKEN_REFRESH,
+            AuditStatus.SUCCESS,
+            user.getId(),
+            user.getUsername(),
+            user.getUserType(),
+            "SESSION",
+            sessionId,
+            user.getUsername(),
+            "Oturum yenilendi",
+            Map.of("companyId", user.getCompanyId() == null ? "" : user.getCompanyId())
+        ));
+    }
+
+    public void recordLogout(String actorUserId, String actorUsername,
+                             com.markethub.backend.domain.UserType userType, String sessionId) {
+        save(buildLog(
+            AuditAction.LOGOUT,
+            AuditStatus.SUCCESS,
+            actorUserId,
+            actorUsername,
+            userType,
+            "SESSION",
+            sessionId,
+            actorUsername,
+            "Oturum kapatildi",
+            Map.of()
+        ));
+    }
+
     private void saveForCurrentActor(
         AuditAction action,
         AuditStatus status,

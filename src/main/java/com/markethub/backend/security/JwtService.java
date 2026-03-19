@@ -21,15 +21,17 @@ public class JwtService {
         this.jwtProperties = jwtProperties;
     }
 
-    public String generateToken(AuthenticatedUser user) {
+    public String generateAccessToken(AuthenticatedUser user, String sessionId) {
         Instant now = Instant.now();
-        Instant expiresAt = now.plusSeconds(jwtProperties.getExpirationSeconds());
+        Instant expiresAt = now.plusSeconds(jwtProperties.getAccessExpirationSeconds());
 
         return Jwts.builder()
             .subject(user.getUsername())
             .issuer(jwtProperties.getIssuer())
             .issuedAt(Date.from(now))
             .expiration(Date.from(expiresAt))
+            .claim("tokenType", "access")
+            .claim("sessionId", sessionId)
             .claim("userId", user.getId())
             .claim("fullName", user.getFullName())
             .claim("email", user.getEmail())
@@ -44,10 +46,15 @@ public class JwtService {
         return extractAllClaims(token).getSubject();
     }
 
+    public String extractSessionId(String token) {
+        return extractAllClaims(token).get("sessionId", String.class);
+    }
+
     public boolean isTokenValid(String token, UserDetails userDetails) {
         try {
             Claims claims = extractAllClaims(token);
             return claims.getSubject().equals(userDetails.getUsername()) &&
+                "access".equals(claims.get("tokenType", String.class)) &&
                 claims.getExpiration().after(new Date());
         } catch (JwtException | IllegalArgumentException exception) {
             return false;

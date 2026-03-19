@@ -13,11 +13,19 @@ public class AuthMapper {
         this.userMapper = userMapper;
     }
 
-    public LoginResponse toLoginResponse(String token, long expirationSeconds, AuthenticatedUser user) {
+    public LoginResponse toLoginResponse(
+        String accessToken,
+        String refreshToken,
+        long accessExpirationSeconds,
+        long refreshExpirationSeconds,
+        AuthenticatedUser user
+    ) {
         return new LoginResponse(
-            token,
+            accessToken,
+            refreshToken,
             "Bearer",
-            expirationSeconds,
+            accessExpirationSeconds,
+            refreshExpirationSeconds,
             userMapper.toCurrentUserResponse(user)
         );
     }

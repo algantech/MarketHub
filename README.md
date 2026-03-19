@@ -29,7 +29,8 @@ Ortam bazli degerler environment variable ile override edilebilir:
 - `SERVER_PORT`
 - `MONGODB_URI`
 - `JWT_SECRET`
-- `JWT_EXPIRATION_SECONDS`
+- `JWT_ACCESS_EXPIRATION_SECONDS`
+- `JWT_REFRESH_EXPIRATION_SECONDS`
 - `JWT_ISSUER`
 - `CORS_ALLOWED_ORIGINS`
 - `SYSTEM_ADMIN_USERNAME`
@@ -43,6 +44,9 @@ Hazirlanan ilk iskelet su senaryoyu kapsar:
 
 - Sistem acilisinda bir `SYSTEM_ADMIN` kullanicisinin seed edilmesi
 - `SYSTEM_ADMIN` girisi
+- `refresh token` ile session yenileme
+- `logout` ile refresh token iptali
+- `roles` endpointi
 - `SYSTEM_ADMIN` tarafindan firma CRUD islemleri
 - `SYSTEM_ADMIN` tarafindan firma kullanicisi CRUD islemleri
 - Firma kullanicilarinin sistem admin tarafindan listelenmesi

@@ -24,7 +24,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@Testcontainers
+@Testcontainers(disabledWithoutDocker = true)
 class SystemAdminFlowIntegrationTest {
 
     @Container
@@ -62,7 +62,29 @@ class SystemAdminFlowIntegrationTest {
             .andExpect(jsonPath("$.data.user.userType").value("SYSTEM_ADMIN"))
             .andReturn();
 
-        String token = readJson(loginResult).path("data").path("accessToken").asText();
+        JsonNode loginJson = readJson(loginResult).path("data");
+        String token = loginJson.path("accessToken").asText();
+        String refreshToken = loginJson.path("refreshToken").asText();
+
+        mockMvc.perform(get("/api/auth/roles")
+                .header("Authorization", "Bearer " + token))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.data.currentUserType").value("SYSTEM_ADMIN"))
+            .andExpect(jsonPath("$.data.companyRoles[0]").exists());
+
+        MvcResult refreshResult = mockMvc.perform(post("/api/auth/refresh")
+                .contentType("application/json")
+                .content("""
+                    {
+                      "refreshToken": "%s"
+                    }
+                    """.formatted(refreshToken)))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.data.accessToken").isNotEmpty())
+            .andExpect(jsonPath("$.data.refreshToken").isNotEmpty())
+            .andReturn();
+
+        String rotatedRefreshToken = readJson(refreshResult).path("data").path("refreshToken").asText();
 
         MvcResult companyResult = mockMvc.perform(post("/api/system/companies")
                 .header("Authorization", "Bearer " + token)
@@ -100,10 +122,21 @@ class SystemAdminFlowIntegrationTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.data[0].username").value("firmaadmin"));
 
+        mockMvc.perform(post("/api/auth/logout")
+                .contentType("application/json")
+                .content("""
+                    {
+                      "refreshToken": "%s"
+                    }
+                    """.formatted(rotatedRefreshToken)))
+            .andExpect(status().isOk());
+
         assertThat(auditLogRepository.findAll())
             .extracting(log -> log.getAction())
             .contains(
                 AuditAction.LOGIN_SUCCESS,
+                AuditAction.TOKEN_REFRESH,
+                AuditAction.LOGOUT,
                 AuditAction.COMPANY_CREATE,
                 AuditAction.USER_CREATE
             );

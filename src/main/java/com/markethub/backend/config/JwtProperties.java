@@ -6,7 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class JwtProperties {
 
     private String secret = "change-me-change-me-change-me-123456";
-    private long expirationSeconds = 3600;
+    private long accessExpirationSeconds = 900;
+    private long refreshExpirationSeconds = 604800;
     private String issuer = "markethub";
 
     public String getSecret() {
@@ -17,12 +18,20 @@ public class JwtProperties {
         this.secret = secret;
     }
 
-    public long getExpirationSeconds() {
-        return expirationSeconds;
+    public long getAccessExpirationSeconds() {
+        return accessExpirationSeconds;
     }
 
-    public void setExpirationSeconds(long expirationSeconds) {
-        this.expirationSeconds = expirationSeconds;
+    public void setAccessExpirationSeconds(long accessExpirationSeconds) {
+        this.accessExpirationSeconds = accessExpirationSeconds;
+    }
+
+    public long getRefreshExpirationSeconds() {
+        return refreshExpirationSeconds;
+    }
+
+    public void setRefreshExpirationSeconds(long refreshExpirationSeconds) {
+        this.refreshExpirationSeconds = refreshExpirationSeconds;
     }
 
     public String getIssuer() {
