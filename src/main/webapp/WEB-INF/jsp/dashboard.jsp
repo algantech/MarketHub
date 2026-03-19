@@ -36,15 +36,9 @@
             </div>
 
             <main class="mx-auto flex w-full max-w-[1600px] flex-1 flex-col gap-8 px-4 py-8 md:px-8 md:py-10">
-                <section class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                    <div class="flex flex-col gap-2">
-                        <h1 id="dashboardTitle" class="text-[34px] font-extrabold tracking-tight text-slate-950">Country Performance Dashboard</h1>
-                        <p id="dashboardSubtitle" class="text-[17px] text-slate-500">Overview of market performance and funnel metrics for Turkey (TR)</p>
-                    </div>
-                    <a href="funnel/new" class="inline-flex h-12 items-center justify-center rounded-2xl bg-primary px-5 text-[15px] font-semibold text-white transition-colors hover:bg-blue-600">
-                        <span class="material-symbols-outlined mr-2 text-[18px]">add</span>
-                        New Funnel
-                    </a>
+                <section class="flex flex-col gap-2">
+                    <h1 id="dashboardTitle" class="text-[34px] font-extrabold tracking-tight text-slate-950">Country Performance Dashboard</h1>
+                    <p id="dashboardSubtitle" class="text-[17px] text-slate-500">Overview of market performance and funnel metrics for Turkey (TR)</p>
                 </section>
 
                 <section id="summaryCards" class="grid grid-cols-2 gap-4 md:grid-cols-3 2xl:grid-cols-6"></section>
@@ -53,10 +47,7 @@
                     <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-panel">
                         <div class="flex items-center justify-between border-b border-slate-100 px-8 py-7">
                             <h2 id="funnelTableTitle" class="text-[20px] font-bold tracking-tight text-slate-950">Active Funnels in TR</h2>
-                            <div class="flex items-center gap-4">
-                                <a href="funnel/new" class="text-[15px] font-medium text-primary hover:underline">New Funnel</a>
-                                <button type="button" class="text-[15px] font-medium text-primary hover:underline">View All</button>
-                            </div>
+                            <button type="button" class="text-[15px] font-medium text-primary hover:underline">View All</button>
                         </div>
                         <div class="overflow-x-auto">
                             <table class="min-w-full text-left">
