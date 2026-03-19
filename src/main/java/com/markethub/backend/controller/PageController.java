@@ -89,10 +89,15 @@ public class PageController {
     }
 
     @GetMapping("/comparison/companies")
+    public String comparisonCompaniesLegacy() {
+        return "redirect:/comparison/campaigns";
+    }
+
+    @GetMapping("/comparison/campaigns")
     public String comparisonCompanies(Model model) {
         model.addAttribute("activePage", "comparison");
-        model.addAttribute("comparisonSection", "companies");
-        return "comparison-companies";
+        model.addAttribute("comparisonSection", "campaigns");
+        return "comparison-campaigns";
     }
 
     @GetMapping("/comparison/ad-sets")

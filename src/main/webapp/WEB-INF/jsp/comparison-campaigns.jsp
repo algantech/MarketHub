@@ -30,7 +30,7 @@
         <%@ include file="/WEB-INF/jsp/fragments/comparison-tabs.jspf" %>
 
         <section class="grid grid-cols-[220px_repeat(4,minmax(0,1fr))] gap-6">
-            <div class="pt-[180px] text-[12px] font-bold uppercase tracking-[0.14em] text-slate-400">
+            <div class="text-[12px] font-bold uppercase tracking-[0.14em] text-slate-400">
                 <div class="h-[170px]"></div>
                 <div class="flex h-[171px] items-center">Ad Spend</div>
                 <div class="flex h-[171px] items-center">Impressions</div>
