@@ -2,6 +2,7 @@ $(function () {
     const loginForm = $("#loginForm");
     const logoutButton = $("#logoutButton");
     const token = localStorage.getItem("accessToken");
+    const authenticatedPage = $("body").data("authenticatedPage") === true;
 
     if (loginForm.length) {
         loginForm.on("submit", function (event) {
@@ -23,7 +24,7 @@ $(function () {
         });
     }
 
-    if ($("#profileBox").length) {
+    if (authenticatedPage || $("#profileBox").length) {
         if (!token) {
             window.location.href = "login.html";
             return;
@@ -35,8 +36,15 @@ $(function () {
                 window.location.href = "system-admin.html";
                 return;
             }
-            $("#welcomeText").text(`${user.fullName} olarak giris yapildi`);
-            $("#profileBox").text(JSON.stringify(user, null, 2));
+            if ($("#welcomeText").length) {
+                $("#welcomeText").text(`${user.fullName} olarak giris yapildi`);
+            }
+            if ($("#profileBox").length) {
+                $("#profileBox").text(JSON.stringify(user, null, 2));
+            }
+            document.dispatchEvent(new CustomEvent("markethub:user-loaded", {
+                detail: user
+            }));
         }).fail(function () {
             clearSessionAndRedirect();
         });
