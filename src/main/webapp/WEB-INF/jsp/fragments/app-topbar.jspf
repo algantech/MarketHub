@@ -10,8 +10,8 @@
                 <a class="${activePage eq 'dashboard' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="${pageContext.request.contextPath}/dashboard">Dashboard</a>
                 <a class="${activePage eq 'funnels' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="${pageContext.request.contextPath}/funnel/new">Funnels</a>
                 <a class="${activePage eq 'campaign' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="${pageContext.request.contextPath}/campaign">Campaign</a>
-                <a class="pb-3 transition-colors hover:text-primary" href="#">Audience</a>
-                <a class="pb-3 transition-colors hover:text-primary" href="#">Comparison</a>
+                <a class="${activePage eq 'audience' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="${pageContext.request.contextPath}/audience">Audience</a>
+                <a class="${activePage eq 'comparison' ? 'border-b-[3px] border-primary pb-3 font-bold text-primary' : 'pb-3 transition-colors hover:text-primary'}" href="${pageContext.request.contextPath}/comparison/countries">Comparison</a>
             </nav>
         </div>
         <div class="flex items-center gap-4">

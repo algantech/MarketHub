@@ -63,6 +63,55 @@ public class PageController {
         return "campaign-analytics";
     }
 
+    @GetMapping("/audience")
+    public String audience(Model model) {
+        model.addAttribute("activePage", "audience");
+        return "audience";
+    }
+
+    @GetMapping("/comparison")
+    public String comparison() {
+        return "redirect:/comparison/countries";
+    }
+
+    @GetMapping("/comparison/countries")
+    public String comparisonCountries(Model model) {
+        model.addAttribute("activePage", "comparison");
+        model.addAttribute("comparisonSection", "countries");
+        return "comparison-countries";
+    }
+
+    @GetMapping("/comparison/funnels")
+    public String comparisonFunnels(Model model) {
+        model.addAttribute("activePage", "comparison");
+        model.addAttribute("comparisonSection", "funnels");
+        return "comparison-funnels";
+    }
+
+    @GetMapping("/comparison/companies")
+    public String comparisonCompanies(Model model) {
+        model.addAttribute("activePage", "comparison");
+        model.addAttribute("comparisonSection", "companies");
+        model.addAttribute("comparisonLabel", "Companies");
+        return "comparison-placeholder";
+    }
+
+    @GetMapping("/comparison/ad-sets")
+    public String comparisonAdSets(Model model) {
+        model.addAttribute("activePage", "comparison");
+        model.addAttribute("comparisonSection", "adSets");
+        model.addAttribute("comparisonLabel", "Ad Sets");
+        return "comparison-placeholder";
+    }
+
+    @GetMapping("/comparison/ads")
+    public String comparisonAds(Model model) {
+        model.addAttribute("activePage", "comparison");
+        model.addAttribute("comparisonSection", "ads");
+        model.addAttribute("comparisonLabel", "Ads");
+        return "comparison-placeholder";
+    }
+
     @GetMapping("/system-admin")
     public String systemAdmin() {
         return "system-admin";

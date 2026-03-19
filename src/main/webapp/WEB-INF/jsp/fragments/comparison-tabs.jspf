@@ -1,0 +1,14 @@
+<%@ page pageEncoding="UTF-8" %>
+<div class="flex flex-wrap items-center gap-3">
+    <span class="text-[14px] font-bold uppercase tracking-[0.14em] text-slate-400">Compare By:</span>
+    <a href="${pageContext.request.contextPath}/comparison/countries"
+       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'countries' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Countries</a>
+    <a href="${pageContext.request.contextPath}/comparison/funnels"
+       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'funnels' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Funnels</a>
+    <a href="${pageContext.request.contextPath}/comparison/companies"
+       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'companies' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Companies</a>
+    <a href="${pageContext.request.contextPath}/comparison/ad-sets"
+       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'adSets' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Ad Sets</a>
+    <a href="${pageContext.request.contextPath}/comparison/ads"
+       class="inline-flex min-h-[44px] items-center rounded-full px-6 text-[16px] font-semibold transition-colors ${comparisonSection eq 'ads' ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'border border-slate-200 bg-white text-slate-700 hover:border-primary/30 hover:text-primary'}">Ads</a>
+</div>
