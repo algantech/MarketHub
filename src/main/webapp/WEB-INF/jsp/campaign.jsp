@@ -11,47 +11,7 @@
     <%@ include file="/WEB-INF/jsp/fragments/app-topbar.jspf" %>
 
     <div class="flex flex-1 overflow-hidden">
-        <aside class="hidden w-[280px] flex-col border-r border-slate-200 bg-white xl:flex">
-            <div class="flex items-center gap-3 px-8 py-8">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
-                    <span class="material-symbols-outlined">hub</span>
-                </div>
-                <div>
-                    <h2 class="text-[20px] font-bold tracking-tight text-slate-950">MarketHub</h2>
-                    <p class="text-sm text-slate-500">Ad Manager</p>
-                </div>
-            </div>
-
-            <nav class="flex flex-1 flex-col gap-2 px-4">
-                <a href="#" class="flex items-center gap-3 rounded-2xl bg-primary/10 px-4 py-3 text-primary">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">grid_view</span>
-                    <span class="text-[16px] font-medium">Overview</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-slate-700 transition-colors hover:bg-slate-100">
-                    <span class="material-symbols-outlined">layers</span>
-                    <span class="text-[16px] font-medium">Ad Sets</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-slate-700 transition-colors hover:bg-slate-100">
-                    <span class="material-symbols-outlined">ads_click</span>
-                    <span class="text-[16px] font-medium">Ads</span>
-                </a>
-                <a href="#" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-slate-700 transition-colors hover:bg-slate-100">
-                    <span class="material-symbols-outlined">bar_chart</span>
-                    <span class="text-[16px] font-medium">Analytics</span>
-                </a>
-            </nav>
-
-            <div class="border-t border-slate-200 p-4">
-                <div class="flex items-center gap-3 px-3 py-2">
-                    <div class="h-10 w-10 rounded-full bg-slate-200"></div>
-                    <div class="flex-1 overflow-hidden">
-                        <p class="truncate text-sm font-medium text-slate-950">Alex Rivard</p>
-                        <p class="truncate text-xs text-slate-500">Marketing Lead</p>
-                    </div>
-                    <span class="material-symbols-outlined text-slate-400 text-[18px]">settings</span>
-                </div>
-            </div>
-        </aside>
+        <%@ include file="/WEB-INF/jsp/fragments/campaign-sidebar.jspf" %>
 
         <div class="flex flex-1 flex-col overflow-y-auto">
             <div class="w-full border-b border-slate-200 bg-white px-4 py-4 md:px-8">
@@ -271,15 +231,8 @@
                     </div>
                 </section>
 
-                <footer class="flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-                    <p>© 2024 MarketHub Marketing Analytics. All rights reserved.</p>
-                    <div class="flex gap-6">
-                        <a href="#" class="hover:text-primary">Privacy Policy</a>
-                        <a href="#" class="hover:text-primary">Terms of Service</a>
-                        <a href="#" class="hover:text-primary">Support</a>
-                    </div>
-                </footer>
             </main>
+            <%@ include file="/WEB-INF/jsp/fragments/app-footer.jspf" %>
         </div>
     </div>
 </div>

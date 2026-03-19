@@ -38,7 +38,22 @@ public class PageController {
     @GetMapping("/campaign")
     public String campaign(Model model) {
         model.addAttribute("activePage", "campaign");
+        model.addAttribute("campaignSection", "overview");
         return "campaign";
+    }
+
+    @GetMapping("/campaign/ad-sets")
+    public String campaignAdSets(Model model) {
+        model.addAttribute("activePage", "campaign");
+        model.addAttribute("campaignSection", "adSets");
+        return "campaign-ad-sets";
+    }
+
+    @GetMapping("/campaign/ads")
+    public String campaignAds(Model model) {
+        model.addAttribute("activePage", "campaign");
+        model.addAttribute("campaignSection", "ads");
+        return "campaign-ads";
     }
 
     @GetMapping("/system-admin")

@@ -177,9 +177,7 @@
         </div>
     </main>
 
-    <footer class="border-t border-slate-200 bg-white py-6 text-center">
-        <p class="text-xs font-medium text-slate-400">© 2024 MarketHub Marketing Analytics Platform. All rights reserved.</p>
-    </footer>
+    <%@ include file="/WEB-INF/jsp/fragments/app-footer.jspf" %>
 </div>
 
 <%@ include file="/WEB-INF/jsp/fragments/common-scripts.jspf" %>

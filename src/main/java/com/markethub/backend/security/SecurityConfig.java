@@ -52,7 +52,7 @@ public class SecurityConfig {
                 .accessDeniedHandler(accessDeniedHandler))
             .authorizeHttpRequests(auth -> auth
                 .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
-                .requestMatchers("/", "/login", "/dashboard", "/funnel", "/funnel/new", "/campaign", "/system-admin", "/index.html", "/assets/**").permitAll()
+                .requestMatchers("/", "/login", "/dashboard", "/funnel", "/funnel/new", "/campaign", "/campaign/**", "/system-admin", "/index.html", "/assets/**").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/refresh").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/auth/logout").permitAll()
