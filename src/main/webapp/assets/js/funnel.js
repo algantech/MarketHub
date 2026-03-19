@@ -193,14 +193,17 @@ $(function () {
             const block = $("<div class='relative flex h-16 w-full items-center justify-center text-center text-sm font-bold'></div>");
             block.addClass(step.fillClass + " " + stepClass + " " + step.labelClass);
             block.text(step.name);
-            card.append(block);
 
             if (step.dropOff) {
-                const marker = $("<div class='absolute top-6 flex -translate-x-1/2 flex-col items-center'></div>");
-                marker.css("left", ((index * 16.6) + 16.6) + "%");
-                marker.append("<span class='rounded border border-red-200 bg-red-100 px-1.5 py-0.5 text-[10px] font-bold text-red-600'>" + step.dropOff + "</span>");
-                elements.funnelOverview.append(marker);
+                const marker = $(
+                    "<span class='absolute right-[-18px] top-1/2 z-20 -translate-y-1/2 rounded-md border border-red-200 bg-[#ffd9d9] px-2 py-1 text-[11px] font-extrabold leading-none text-red-600 shadow-sm'>" +
+                        step.dropOff +
+                    "</span>"
+                );
+                block.append(marker);
             }
+
+            card.append(block);
 
             card.append(
                 "<div class='mt-4 text-center'>" +

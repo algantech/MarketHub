@@ -149,12 +149,7 @@ $(function () {
         spendMaxLabel: $("#spendMaxLabel"),
         salesMaxLabel: $("#salesMaxLabel"),
         spendComparisonList: $("#spendComparisonList"),
-        salesComparisonList: $("#salesComparisonList"),
-        profileMenuButton: $("#profileMenuButton"),
-        profileMenu: $("#profileMenu"),
-        profileInitials: $("#profileInitials"),
-        profileName: $("#profileName"),
-        profileEmail: $("#profileEmail")
+        salesComparisonList: $("#salesComparisonList")
     };
 
     elements.dateRangeLabel.text(dashboardData.dateRangeLabel);
@@ -163,26 +158,12 @@ $(function () {
 
     document.addEventListener("markethub:user-loaded", function (event) {
         state.currentUser = event.detail;
-        renderProfile(event.detail);
     });
 
     function bindEvents() {
         elements.countryList.on("click", "[data-country-code]", function () {
             state.selectedCountryCode = $(this).data("countryCode");
             render();
-        });
-
-        elements.profileMenuButton.on("click", function () {
-            const isHidden = elements.profileMenu.hasClass("hidden");
-            elements.profileMenu.toggleClass("hidden", !isHidden);
-            elements.profileMenuButton.attr("aria-expanded", String(isHidden));
-        });
-
-        $(document).on("click", function (event) {
-            if (!$(event.target).closest("#profileMenuButton, #profileMenu").length) {
-                elements.profileMenu.addClass("hidden");
-                elements.profileMenuButton.attr("aria-expanded", "false");
-            }
         });
     }
 
@@ -292,23 +273,6 @@ $(function () {
             elements.salesComparisonList.append(progressRow(funnel.name, String(funnel.sales), funnel.sales, salesMax, "bg-emerald-500", "text-emerald-600"));
         });
     }
-
-    function renderProfile(user) {
-        const initials = user.fullName
-            .split(/\s+/)
-            .filter(Boolean)
-            .slice(0, 2)
-            .map(function (part) {
-                return part.charAt(0);
-            })
-            .join("")
-            .toUpperCase() || "MH";
-
-        elements.profileInitials.text(initials);
-        elements.profileName.text(user.fullName);
-        elements.profileEmail.text(user.email || user.username);
-    }
-
     function statusBadge(status) {
         if (status === "Active") {
             return "<span class='inline-flex rounded-full bg-emerald-100 px-3 py-1 text-[13px] font-bold text-emerald-700'>Active</span>";

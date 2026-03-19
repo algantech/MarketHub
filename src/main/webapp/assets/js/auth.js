@@ -3,6 +3,8 @@ $(function () {
     const logoutButton = $("#logoutButton");
     const token = localStorage.getItem("accessToken");
     const authenticatedPage = $("body").data("authenticatedPage") === true;
+    const profileMenuButton = $("#profileMenuButton");
+    const profileMenu = $("#profileMenu");
 
     if (loginForm.length) {
         loginForm.on("submit", function (event) {
@@ -42,6 +44,7 @@ $(function () {
             if ($("#profileBox").length) {
                 $("#profileBox").text(JSON.stringify(user, null, 2));
             }
+            renderSharedProfile(user);
             document.dispatchEvent(new CustomEvent("markethub:user-loaded", {
                 detail: user
             }));
@@ -53,6 +56,21 @@ $(function () {
     if (logoutButton.length) {
         logoutButton.on("click", function () {
             clearSessionAndRedirect();
+        });
+    }
+
+    if (profileMenuButton.length && profileMenu.length) {
+        profileMenuButton.on("click", function () {
+            const isHidden = profileMenu.hasClass("hidden");
+            profileMenu.toggleClass("hidden", !isHidden);
+            profileMenuButton.attr("aria-expanded", String(isHidden));
+        });
+
+        $(document).on("click", function (event) {
+            if (!$(event.target).closest("#profileMenuButton, #profileMenu").length) {
+                profileMenu.addClass("hidden");
+                profileMenuButton.attr("aria-expanded", "false");
+            }
         });
     }
 });
@@ -81,4 +99,30 @@ function clearSessionAndRedirect() {
         skipAuthRefresh: true,
         skipAuthorization: true
     }).always(finalize);
+}
+
+function renderSharedProfile(user) {
+    if (!user) {
+        return;
+    }
+
+    const initials = (user.fullName || user.username || "MH")
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(function (part) {
+            return part.charAt(0);
+        })
+        .join("")
+        .toUpperCase() || "MH";
+
+    if ($("#profileInitials").length) {
+        $("#profileInitials").text(initials);
+    }
+    if ($("#profileName").length) {
+        $("#profileName").text(user.fullName || user.username || "MarketHub User");
+    }
+    if ($("#profileEmail").length) {
+        $("#profileEmail").text(user.email || user.username || "");
+    }
 }
