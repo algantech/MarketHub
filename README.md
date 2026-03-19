@@ -8,6 +8,7 @@ Bu repo, Eclipse'te tek Maven proje olarak acilabilecek sekilde duzenlendi.
 - `src/main/resources`: uygulama konfigurasyonlari
 - `src/main/webapp`: Bootstrap/jQuery tabanli istemci dosyalari
 - `src/test/java`: testler
+- `docs`: teknik dokumanlar
 
 ## Paketler
 
@@ -57,3 +58,7 @@ Hazirlanan ilk iskelet su senaryoyu kapsar:
 ## Not
 
 Bu ortamda `mvn` kurulu olmadigi icin Maven build burada calistirilmadi. Dosya yapisi Maven tabanli devam edecek sekilde hazirlandi.
+
+## Dokumanlar
+
+- `docs/mongodb-data-model.md`: mevcut MongoDB yapisi ve Marketing Dashboard icin onerilen hedef veri modeli
