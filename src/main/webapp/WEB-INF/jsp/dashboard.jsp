@@ -1,73 +1,14 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="pageTitle" value="MarketHub Dashboard" />
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarketHub Dashboard</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: "#1876f2",
-                        "background-light": "#f5f7f8"
-                    },
-                    fontFamily: {
-                        display: ["Inter", "sans-serif"]
-                    },
-                    boxShadow: {
-                        panel: "0 1px 2px rgba(15, 23, 42, 0.05)"
-                    }
-                }
-            }
-        };
-    </script>
-    <link href="assets/css/app.css" rel="stylesheet">
+    <%@ include file="/WEB-INF/jsp/fragments/tailwind-head.jspf" %>
 </head>
 <body data-authenticated-page="true" class="bg-background-light font-display text-slate-900">
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-    <header class="sticky top-0 z-50 w-full border-b border-slate-200 bg-white px-4 py-4 md:px-8">
-        <div class="mx-auto flex max-w-[1600px] items-center justify-between gap-6">
-            <div class="flex items-center gap-8">
-                <a class="flex items-center gap-3 text-primary" href="dashboard.html" aria-label="MarketHub Dashboard">
-                    <span class="material-symbols-outlined text-[38px] leading-none">hub</span>
-                    <span class="text-[22px] font-extrabold tracking-tight text-slate-950">MarketHub</span>
-                </a>
-                <nav class="hidden items-center gap-8 text-[15px] font-medium text-slate-700 lg:flex">
-                    <a class="border-b-[3px] border-primary pb-3 font-bold text-primary" href="dashboard.html">Dashboard</a>
-                    <a class="pb-3 transition-colors hover:text-primary" href="#">Funnels</a>
-                    <a class="pb-3 transition-colors hover:text-primary" href="#">Campaign</a>
-                    <a class="pb-3 transition-colors hover:text-primary" href="#">Audience</a>
-                    <a class="pb-3 transition-colors hover:text-primary" href="#">Comparison</a>
-                </nav>
-            </div>
-            <div class="flex items-center gap-4">
-                <button type="button" class="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200" aria-label="Notifications">
-                    <span class="material-symbols-outlined text-[22px]">notifications</span>
-                </button>
-                <div class="relative">
-                    <button id="profileMenuButton" type="button" class="flex h-12 w-12 items-center justify-center rounded-full border border-orange-200 bg-orange-100 text-sm font-bold uppercase text-orange-700 transition-transform hover:scale-[1.02]" aria-expanded="false" aria-controls="profileMenu">
-                        <span id="profileInitials">MH</span>
-                    </button>
-                    <div id="profileMenu" class="hidden absolute right-0 top-[calc(100%+12px)] w-64 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
-                        <div class="border-b border-slate-100 pb-3">
-                            <p id="profileName" class="text-sm font-semibold text-slate-900">MarketHub User</p>
-                            <p id="profileEmail" class="mt-1 text-xs text-slate-500">user@markethub.local</p>
-                        </div>
-                        <button id="logoutButton" type="button" class="mt-3 flex w-full items-center justify-between rounded-xl px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100">
-                            <span>Logout</span>
-                            <span class="material-symbols-outlined text-[18px]">logout</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <%@ include file="/WEB-INF/jsp/fragments/app-topbar.jspf" %>
 
     <div class="flex flex-1 overflow-hidden">
         <aside class="hidden w-[320px] flex-col border-r border-slate-200 bg-white xl:flex">
@@ -151,9 +92,7 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="assets/js/api.js"></script>
-<script src="assets/js/auth.js"></script>
+<%@ include file="/WEB-INF/jsp/fragments/common-scripts.jspf" %>
 <script src="assets/js/dashboard.js"></script>
 </body>
 </html>
