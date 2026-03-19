@@ -56,6 +56,13 @@ public class PageController {
         return "campaign-ads";
     }
 
+    @GetMapping("/campaign/analytics")
+    public String campaignAnalytics(Model model) {
+        model.addAttribute("activePage", "campaign");
+        model.addAttribute("campaignSection", "analytics");
+        return "campaign-analytics";
+    }
+
     @GetMapping("/system-admin")
     public String systemAdmin() {
         return "system-admin";

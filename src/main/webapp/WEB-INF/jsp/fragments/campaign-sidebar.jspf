@@ -1,15 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
 <aside class="hidden w-[280px] flex-col border-r border-slate-200 bg-white xl:flex">
-    <div class="flex items-center gap-3 px-8 py-8">
-        <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
-            <span class="material-symbols-outlined">hub</span>
-        </div>
-        <div>
-            <h2 class="text-[20px] font-bold tracking-tight text-slate-950">MarketHub</h2>
-            <p class="text-sm text-slate-500">Ad Manager</p>
-        </div>
-    </div>
-
     <nav class="flex flex-1 flex-col gap-2 px-4">
         <a href="${pageContext.request.contextPath}/campaign"
            class="flex items-center gap-3 rounded-2xl px-4 py-3 transition-colors ${campaignSection eq 'overview' ? 'bg-primary/10 text-primary' : 'text-slate-700 hover:bg-slate-100'}">
@@ -26,9 +16,10 @@
             <span class="material-symbols-outlined">ads_click</span>
             <span class="text-[16px] font-medium">Ads</span>
         </a>
-        <button type="button" class="flex items-center gap-3 rounded-2xl px-4 py-3 text-left text-slate-700 transition-colors hover:bg-slate-100">
+        <a href="${pageContext.request.contextPath}/campaign/analytics"
+           class="flex items-center gap-3 rounded-2xl px-4 py-3 transition-colors ${campaignSection eq 'analytics' ? 'bg-primary/10 text-primary' : 'text-slate-700 hover:bg-slate-100'}">
             <span class="material-symbols-outlined">bar_chart</span>
             <span class="text-[16px] font-medium">Analytics</span>
-        </button>
+        </a>
     </nav>
 </aside>
