@@ -9,6 +9,13 @@ Bu repo, Eclipse'te tek Maven proje olarak acilabilecek sekilde duzenlendi.
 - `src/main/webapp`: Bootstrap/jQuery tabanli istemci dosyalari
 - `src/test/java`: testler
 
+## Paketler
+
+- `audit`: audit log modeli, repository ve servis
+- `mapper`: domain -> response donusumleri
+- `util`: normalization ve security yardimcilari
+- `validation`: ozel bean validation kurallari
+
 ## Konfigurasyon
 
 Backend ayarlari dosyadan okunur:
@@ -40,6 +47,8 @@ Hazirlanan ilk iskelet su senaryoyu kapsar:
 - `SYSTEM_ADMIN` tarafindan firma kullanicisi CRUD islemleri
 - Firma kullanicilarinin sistem admin tarafindan listelenmesi
 - Giris yapan kullanicinin kendi profilini okuma
+- Audit log kayitlari
+- Unit ve entegrasyon testleri
 
 ## Not
 

@@ -1,6 +1,7 @@
 package com.markethub.backend.dto.request;
 
 import com.markethub.backend.domain.Role;
+import com.markethub.backend.validation.PasswordRule;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -13,7 +14,7 @@ public record UpdateUserRequest(
     @NotBlank(message = "Kullanici adi bos olamaz")
     @Size(min = 3, max = 50, message = "Kullanici adi 3-50 karakter arasinda olmali")
     String username,
-    @Size(min = 8, max = 100, message = "Sifre en az 8 karakter olmali")
+    @PasswordRule(required = false)
     String password,
     @NotBlank(message = "Ad soyad bos olamaz")
     @Size(max = 120, message = "Ad soyad en fazla 120 karakter olabilir")
